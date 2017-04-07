@@ -134,9 +134,33 @@ public class KiwiCountUI
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        jSplitPane1 = new javax.swing.JSplitPane();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
+        buttonGroup4 = new javax.swing.ButtonGroup();
+        buttonGroup5 = new javax.swing.ButtonGroup();
+        buttonGroup6 = new javax.swing.ButtonGroup();
+        buttonGroup7 = new javax.swing.ButtonGroup();
+        buttonGroup8 = new javax.swing.ButtonGroup();
+        buttonGroup9 = new javax.swing.ButtonGroup();
+        buttonGroup10 = new javax.swing.ButtonGroup();
+        buttonGroup11 = new javax.swing.ButtonGroup();
         javax.swing.JPanel pnlContent = new javax.swing.JPanel();
         pnlIsland = new javax.swing.JPanel();
         javax.swing.JPanel pnlControls = new javax.swing.JPanel();
+        javax.swing.JPanel pnlMovement = new javax.swing.JPanel();
+        btnMoveNorth = new javax.swing.JButton();
+        btnMoveSouth = new javax.swing.JButton();
+        btnMoveEast = new javax.swing.JButton();
+        btnMoveWest = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        javax.swing.JPanel pnlInventory = new javax.swing.JPanel();
+        javax.swing.JScrollPane scrlInventory = new javax.swing.JScrollPane();
+        listInventory = new javax.swing.JList();
+        btnDrop = new javax.swing.JButton();
+        btnUse = new javax.swing.JButton();
         javax.swing.JPanel pnlPlayer = new javax.swing.JPanel();
         javax.swing.JPanel pnlPlayerData = new javax.swing.JPanel();
         javax.swing.JLabel lblPlayerName = new javax.swing.JLabel();
@@ -151,21 +175,37 @@ public class KiwiCountUI
         lblKiwisCounted = new javax.swing.JLabel();
         txtKiwisCounted = new javax.swing.JLabel();
         txtPredatorsLeft = new javax.swing.JLabel();
-        javax.swing.JPanel pnlMovement = new javax.swing.JPanel();
-        btnMoveNorth = new javax.swing.JButton();
-        btnMoveSouth = new javax.swing.JButton();
-        btnMoveEast = new javax.swing.JButton();
-        btnMoveWest = new javax.swing.JButton();
-        javax.swing.JPanel pnlInventory = new javax.swing.JPanel();
-        javax.swing.JScrollPane scrlInventory = new javax.swing.JScrollPane();
-        listInventory = new javax.swing.JList();
-        btnDrop = new javax.swing.JButton();
-        btnUse = new javax.swing.JButton();
+        javax.swing.JPanel pnlGameOptions = new javax.swing.JPanel();
+        jMapImage1 = new javax.swing.JLabel();
+        jMapImage2 = new javax.swing.JLabel();
+        jMapImage3 = new javax.swing.JLabel();
+        jMapRandom = new javax.swing.JLabel();
+        jMapImage5 = new javax.swing.JLabel();
+        jMapImage4 = new javax.swing.JLabel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton4 = new javax.swing.JRadioButton();
+        jRadioButton5 = new javax.swing.JRadioButton();
+        jRadioButton6 = new javax.swing.JRadioButton();
+        jLabelSelectGameMode = new javax.swing.JLabel();
+        jRadioBtnRelax = new javax.swing.JRadioButton();
+        jRadioBtnChallenge = new javax.swing.JRadioButton();
+        selectGameMap = new javax.swing.JLabel();
+        jButtonStartGame = new javax.swing.JButton();
+        jButtonStopGame = new javax.swing.JButton();
+        javax.swing.JPanel pnlDescription = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
         javax.swing.JPanel pnlObjects = new javax.swing.JPanel();
         javax.swing.JScrollPane scrlObjects = new javax.swing.JScrollPane();
         listObjects = new javax.swing.JList();
         btnCollect = new javax.swing.JButton();
         btnCount = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        gameProgressBar = new javax.swing.JProgressBar();
+        jLabelGameTime = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Kiwi Count");
@@ -177,16 +217,142 @@ public class KiwiCountUI
         pnlIsland.setLayout(pnlIslandLayout);
         pnlIslandLayout.setHorizontalGroup(
             pnlIslandLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 540, Short.MAX_VALUE)
+            .addGap(0, 891, Short.MAX_VALUE)
         );
         pnlIslandLayout.setVerticalGroup(
             pnlIslandLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 618, Short.MAX_VALUE)
+            .addGap(0, 609, Short.MAX_VALUE)
         );
 
         pnlContent.add(pnlIsland, java.awt.BorderLayout.CENTER);
 
-        pnlControls.setLayout(new java.awt.GridBagLayout());
+        pnlMovement.setBorder(javax.swing.BorderFactory.createTitledBorder("Movement"));
+        pnlMovement.setLayout(new java.awt.GridBagLayout());
+
+        btnMoveNorth.setText("N");
+        btnMoveNorth.setFocusable(false);
+        btnMoveNorth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMoveNorthActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        pnlMovement.add(btnMoveNorth, gridBagConstraints);
+
+        btnMoveSouth.setText("S");
+        btnMoveSouth.setFocusable(false);
+        btnMoveSouth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMoveSouthActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        pnlMovement.add(btnMoveSouth, gridBagConstraints);
+
+        btnMoveEast.setText("E");
+        btnMoveEast.setFocusable(false);
+        btnMoveEast.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMoveEastActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        pnlMovement.add(btnMoveEast, gridBagConstraints);
+
+        btnMoveWest.setText("W");
+        btnMoveWest.setFocusable(false);
+        btnMoveWest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMoveWestActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        pnlMovement.add(btnMoveWest, gridBagConstraints);
+        pnlMovement.add(jSeparator1, new java.awt.GridBagConstraints());
+        pnlMovement.add(jSeparator2, new java.awt.GridBagConstraints());
+
+        pnlInventory.setBorder(javax.swing.BorderFactory.createTitledBorder("Inventory"));
+        pnlInventory.setLayout(new java.awt.GridBagLayout());
+
+        listInventory.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        listInventory.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        listInventory.setVisibleRowCount(3);
+        listInventory.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                listInventoryValueChanged(evt);
+            }
+        });
+        scrlInventory.setViewportView(listInventory);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pnlInventory.add(scrlInventory, gridBagConstraints);
+
+        btnDrop.setText("Drop");
+        btnDrop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDropActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pnlInventory.add(btnDrop, gridBagConstraints);
+
+        btnUse.setText("Use");
+        btnUse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUseActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pnlInventory.add(btnUse, gridBagConstraints);
 
         pnlPlayer.setBorder(javax.swing.BorderFactory.createTitledBorder("Player"));
         pnlPlayer.setLayout(new java.awt.BorderLayout());
@@ -293,157 +459,173 @@ public class KiwiCountUI
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         pnlPlayerData.add(txtPredatorsLeft, gridBagConstraints);
 
-        pnlPlayer.add(pnlPlayerData, java.awt.BorderLayout.WEST);
+        pnlPlayer.add(pnlPlayerData, java.awt.BorderLayout.CENTER);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 0.5;
-        pnlControls.add(pnlPlayer, gridBagConstraints);
+        pnlGameOptions.setBorder(javax.swing.BorderFactory.createTitledBorder("Game Options"));
 
-        pnlMovement.setBorder(javax.swing.BorderFactory.createTitledBorder("Movement"));
-        pnlMovement.setLayout(new java.awt.GridBagLayout());
+        jMapImage1.setBackground(new java.awt.Color(255, 255, 255));
+        jMapImage1.setText("MapImage1");
 
-        btnMoveNorth.setText("N");
-        btnMoveNorth.setFocusable(false);
-        btnMoveNorth.addActionListener(new java.awt.event.ActionListener() {
+        jMapImage2.setBackground(new java.awt.Color(255, 0, 153));
+        jMapImage2.setText("MapImage2");
+
+        jMapImage3.setText("MapImage3");
+
+        jMapRandom.setText("Random");
+
+        jMapImage5.setText("MapImage5");
+
+        jMapImage4.setText("MapImage4");
+
+        buttonGroup1.add(jRadioButton1);
+        jRadioButton1.setText("Map1");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMoveNorthActionPerformed(evt);
+                jRadioButton1ActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        pnlMovement.add(btnMoveNorth, gridBagConstraints);
 
-        btnMoveSouth.setText("S");
-        btnMoveSouth.setFocusable(false);
-        btnMoveSouth.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(jRadioButton2);
+        jRadioButton2.setText("Map2");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMoveSouthActionPerformed(evt);
+                jRadioButton2ActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        pnlMovement.add(btnMoveSouth, gridBagConstraints);
 
-        btnMoveEast.setText("E");
-        btnMoveEast.setFocusable(false);
-        btnMoveEast.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMoveEastActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        pnlMovement.add(btnMoveEast, gridBagConstraints);
+        buttonGroup1.add(jRadioButton3);
+        jRadioButton3.setText("Map3");
 
-        btnMoveWest.setText("W");
-        btnMoveWest.setFocusable(false);
-        btnMoveWest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMoveWestActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        pnlMovement.add(btnMoveWest, gridBagConstraints);
+        buttonGroup1.add(jRadioButton4);
+        jRadioButton4.setText("Map4");
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 0.5;
-        pnlControls.add(pnlMovement, gridBagConstraints);
+        buttonGroup1.add(jRadioButton5);
+        jRadioButton5.setText("Map5");
 
-        pnlInventory.setBorder(javax.swing.BorderFactory.createTitledBorder("Inventory"));
-        pnlInventory.setLayout(new java.awt.GridBagLayout());
+        buttonGroup1.add(jRadioButton6);
+        jRadioButton6.setText("Random");
 
-        listInventory.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        listInventory.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        listInventory.setVisibleRowCount(3);
-        listInventory.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                listInventoryValueChanged(evt);
-            }
-        });
-        scrlInventory.setViewportView(listInventory);
+        jLabelSelectGameMode.setText("Select Game Mode");
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pnlInventory.add(scrlInventory, gridBagConstraints);
+        buttonGroup2.add(jRadioBtnRelax);
+        jRadioBtnRelax.setLabel("Relax Mode");
 
-        btnDrop.setText("Drop");
-        btnDrop.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDropActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pnlInventory.add(btnDrop, gridBagConstraints);
+        buttonGroup2.add(jRadioBtnChallenge);
+        jRadioBtnChallenge.setText("Challenge Mode");
 
-        btnUse.setText("Use");
-        btnUse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUseActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pnlInventory.add(btnUse, gridBagConstraints);
+        selectGameMap.setText("Select Game Map");
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        pnlControls.add(pnlInventory, gridBagConstraints);
+        jButtonStartGame.setText("START GAME");
+
+        jButtonStopGame.setText("STOP GAME");
+
+        javax.swing.GroupLayout pnlGameOptionsLayout = new javax.swing.GroupLayout(pnlGameOptions);
+        pnlGameOptions.setLayout(pnlGameOptionsLayout);
+        pnlGameOptionsLayout.setHorizontalGroup(
+            pnlGameOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlGameOptionsLayout.createSequentialGroup()
+                .addGroup(pnlGameOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlGameOptionsLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(pnlGameOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(selectGameMap)
+                            .addGroup(pnlGameOptionsLayout.createSequentialGroup()
+                                .addGroup(pnlGameOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jMapImage3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jMapImage2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jMapImage1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(pnlGameOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pnlGameOptionsLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(pnlGameOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jRadioButton1)
+                                            .addComponent(jRadioButton2)
+                                            .addComponent(jRadioButton3)))
+                                    .addGroup(pnlGameOptionsLayout.createSequentialGroup()
+                                        .addGap(79, 79, 79)
+                                        .addComponent(jLabelSelectGameMode))))))
+                    .addGroup(pnlGameOptionsLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(pnlGameOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButtonStartGame)
+                            .addComponent(jRadioBtnRelax))))
+                .addGroup(pnlGameOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlGameOptionsLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlGameOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlGameOptionsLayout.createSequentialGroup()
+                                .addGroup(pnlGameOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jMapRandom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jMapImage5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jMapImage4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pnlGameOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jRadioButton4)
+                                    .addComponent(jRadioButton5)
+                                    .addComponent(jRadioButton6)))
+                            .addComponent(jRadioBtnChallenge))
+                        .addContainerGap(12, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlGameOptionsLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonStopGame)
+                        .addGap(51, 51, 51))))
+        );
+        pnlGameOptionsLayout.setVerticalGroup(
+            pnlGameOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlGameOptionsLayout.createSequentialGroup()
+                .addComponent(selectGameMap)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelSelectGameMode)
+                .addGap(85, 85, 85))
+            .addGroup(pnlGameOptionsLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(pnlGameOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlGameOptionsLayout.createSequentialGroup()
+                        .addGroup(pnlGameOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jMapImage4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton4))
+                        .addGap(18, 18, 18)
+                        .addGroup(pnlGameOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jMapImage5, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton2)
+                            .addComponent(jRadioButton5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pnlGameOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jMapRandom, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton6)))
+                    .addGroup(pnlGameOptionsLayout.createSequentialGroup()
+                        .addGroup(pnlGameOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jMapImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton1))
+                        .addGap(18, 18, 18)
+                        .addComponent(jMapImage2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pnlGameOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jMapImage3, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton3))))
+                .addGroup(pnlGameOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlGameOptionsLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                        .addComponent(jRadioBtnRelax)
+                        .addGap(29, 29, 29)
+                        .addGroup(pnlGameOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonStartGame)
+                            .addComponent(jButtonStopGame)))
+                    .addGroup(pnlGameOptionsLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jRadioBtnChallenge)
+                        .addContainerGap())))
+        );
+
+        jLabelSelectGameMode.getAccessibleContext().setAccessibleDescription("");
+        selectGameMap.getAccessibleContext().setAccessibleDescription("");
+
+        pnlDescription.setBorder(javax.swing.BorderFactory.createTitledBorder("Description"));
+        pnlDescription.setLayout(new java.awt.BorderLayout());
+
+        jScrollPane1.setViewportView(jTextPane1);
+
+        pnlDescription.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
         pnlObjects.setBorder(javax.swing.BorderFactory.createTitledBorder("Objects"));
         java.awt.GridBagLayout pnlObjectsLayout = new java.awt.GridBagLayout();
@@ -512,15 +694,83 @@ public class KiwiCountUI
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pnlObjects.add(btnCount, gridBagConstraints);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        pnlControls.add(pnlObjects, gridBagConstraints);
+        javax.swing.GroupLayout pnlControlsLayout = new javax.swing.GroupLayout(pnlControls);
+        pnlControls.setLayout(pnlControlsLayout);
+        pnlControlsLayout.setHorizontalGroup(
+            pnlControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlDescription, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnlControlsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(pnlControlsLayout.createSequentialGroup()
+                        .addComponent(pnlInventory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pnlObjects, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlControlsLayout.createSequentialGroup()
+                        .addGroup(pnlControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(pnlMovement, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                            .addComponent(pnlPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pnlGameOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnlControlsLayout.setVerticalGroup(
+            pnlControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlControlsLayout.createSequentialGroup()
+                .addGroup(pnlControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pnlControlsLayout.createSequentialGroup()
+                        .addComponent(pnlPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(pnlMovement, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnlGameOptions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlObjects, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        pnlGameOptions.getAccessibleContext().setAccessibleName("Game Options");
+        pnlGameOptions.getAccessibleContext().setAccessibleDescription("");
 
         pnlContent.add(pnlControls, java.awt.BorderLayout.EAST);
+
+        jButton1.setText("HELP");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabelGameTime.setText("Game Time");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 784, Short.MAX_VALUE)
+                .addComponent(jLabelGameTime)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(gameProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(532, 532, 532)
+                .addComponent(jButton1))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelGameTime)
+                    .addComponent(jButton1)
+                    .addComponent(gameProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        jLabelGameTime.getAccessibleContext().setAccessibleName("jLabelGameTime");
+
+        pnlContent.add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
         getContentPane().add(pnlContent, java.awt.BorderLayout.CENTER);
 
@@ -579,6 +829,18 @@ public class KiwiCountUI
     private void btnCountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCountActionPerformed
         game.countKiwi();
     }//GEN-LAST:event_btnCountActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
     
     /**
      * Creates and initialises the island grid.
@@ -611,6 +873,43 @@ public class KiwiCountUI
     private javax.swing.JButton btnMoveSouth;
     private javax.swing.JButton btnMoveWest;
     private javax.swing.JButton btnUse;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup10;
+    private javax.swing.ButtonGroup buttonGroup11;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.ButtonGroup buttonGroup5;
+    private javax.swing.ButtonGroup buttonGroup6;
+    private javax.swing.ButtonGroup buttonGroup7;
+    private javax.swing.ButtonGroup buttonGroup8;
+    private javax.swing.ButtonGroup buttonGroup9;
+    private javax.swing.JProgressBar gameProgressBar;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonStartGame;
+    private javax.swing.JButton jButtonStopGame;
+    private javax.swing.JLabel jLabelGameTime;
+    private javax.swing.JLabel jLabelSelectGameMode;
+    private javax.swing.JLabel jMapImage1;
+    private javax.swing.JLabel jMapImage2;
+    private javax.swing.JLabel jMapImage3;
+    private javax.swing.JLabel jMapImage4;
+    private javax.swing.JLabel jMapImage5;
+    private javax.swing.JLabel jMapRandom;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadioBtnChallenge;
+    private javax.swing.JRadioButton jRadioBtnRelax;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JRadioButton jRadioButton5;
+    private javax.swing.JRadioButton jRadioButton6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JLabel lblKiwisCounted;
     private javax.swing.JLabel lblPredators;
     private javax.swing.JList listInventory;
@@ -619,6 +918,7 @@ public class KiwiCountUI
     private javax.swing.JProgressBar progBackpackSize;
     private javax.swing.JProgressBar progBackpackWeight;
     private javax.swing.JProgressBar progPlayerStamina;
+    private javax.swing.JLabel selectGameMap;
     private javax.swing.JLabel txtKiwisCounted;
     private javax.swing.JLabel txtPlayerName;
     private javax.swing.JLabel txtPredatorsLeft;
