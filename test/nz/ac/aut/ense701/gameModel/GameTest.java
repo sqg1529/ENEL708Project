@@ -4,9 +4,8 @@ import org.junit.Test;
 
 /**
  * The test class GameTest.
- *
- * @author  AS
- * @version S2 2011
+ * @author Moses
+ * @version March 2017
  */
 public class GameTest extends junit.framework.TestCase
 {
@@ -32,7 +31,7 @@ public class GameTest extends junit.framework.TestCase
     {
         // Create a new game from the data file.
         // Player is in position 2,0 & has 100 units of stamina
-        game           = new Game();
+        game = new Game("islandData.txt", true);
         playerPosition = game.getPlayer().getPosition();
         player         = game.getPlayer();
         island = game.getIsland();
