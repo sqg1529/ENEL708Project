@@ -2,6 +2,7 @@ package nz.ac.aut.ense701.gui;
 
 import java.awt.Component;
 import java.awt.GridLayout;
+import javax.swing.ButtonModel;
 import javax.swing.JOptionPane;
 import nz.ac.aut.ense701.gameModel.Game;
 import nz.ac.aut.ense701.gameModel.GameEventListener;
@@ -24,12 +25,20 @@ public class KiwiCountUI
      * Creates a GUI for the KiwiIsland game.
      * @param game the game object to represent with this GUI.
      */
-    public KiwiCountUI(Game game) 
+    public KiwiCountUI() 
     {
-        assert game != null : "Make sure game object is created before UI";
-        this.game = game;
-        setAsGameListener();
+        
+        
         initComponents();
+    }
+    
+    
+    public void startGame(String mapFileLocation){
+        assert game != null : "Make sure game object is created before UI";
+        
+        
+        this.game = new Game(mapFileLocation,true);
+        setAsGameListener();
         initIslandGrid();
         update();
     }
@@ -50,7 +59,7 @@ public class KiwiCountUI
                     this, 
                     game.getLoseMessage(), "Game over!",
                     JOptionPane.INFORMATION_MESSAGE);
-            game.createNewGame();
+            game.createNewGame(userMapSelection);
         }
         else if ( game.getState() == GameState.WON )
         {
@@ -58,7 +67,7 @@ public class KiwiCountUI
                     this, 
                     game.getWinMessage(), "Well Done!",
                     JOptionPane.INFORMATION_MESSAGE);
-            game.createNewGame();
+            game.createNewGame(userMapSelection);
         }
         else if (game.messageForPlayer())
         {
@@ -182,12 +191,12 @@ public class KiwiCountUI
         jMapRandom = new javax.swing.JLabel();
         jMapImage5 = new javax.swing.JLabel();
         jMapImage4 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
+        jRadioWhangarei = new javax.swing.JRadioButton();
+        jRadioMoehau = new javax.swing.JRadioButton();
+        jRadioTongariro = new javax.swing.JRadioButton();
+        jRadioOkarito = new javax.swing.JRadioButton();
+        jRadioHaast = new javax.swing.JRadioButton();
+        jRadioRand = new javax.swing.JRadioButton();
         jLabelSelectGameMode = new javax.swing.JLabel();
         jRadioBtnRelax = new javax.swing.JRadioButton();
         jRadioBtnChallenge = new javax.swing.JRadioButton();
@@ -203,7 +212,7 @@ public class KiwiCountUI
         btnCollect = new javax.swing.JButton();
         btnCount = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        jButtonHelp = new javax.swing.JButton();
         gameProgressBar = new javax.swing.JProgressBar();
         jLabelGameTime = new javax.swing.JLabel();
 
@@ -464,55 +473,63 @@ public class KiwiCountUI
         pnlGameOptions.setBorder(javax.swing.BorderFactory.createTitledBorder("Game Options"));
 
         jMapImage1.setBackground(new java.awt.Color(255, 255, 255));
-        jMapImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nz/ac/aut/ense701/gui/Whangarei.png"))); // NOI18N
+        jMapImage1.setIcon(new javax.swing.ImageIcon("/Users/moses/Documents/Software Engineering/KiwiIsland/Whangarei.png")); // NOI18N
 
-        jMapImage2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nz/ac/aut/ense701/gui/Moehau.png"))); // NOI18N
+        jMapImage2.setIcon(new javax.swing.ImageIcon("/Users/moses/Documents/Software Engineering/KiwiIsland/Moehau.png")); // NOI18N
         jMapImage2.setMaximumSize(new java.awt.Dimension(716, 333));
 
-        jMapImage3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nz/ac/aut/ense701/gui/Tongariro.png"))); // NOI18N
+        jMapImage3.setIcon(new javax.swing.ImageIcon("/Users/moses/Documents/Software Engineering/KiwiIsland/Tongariro.png")); // NOI18N
 
         jMapRandom.setText("    Random Map");
 
-        jMapImage5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nz/ac/aut/ense701/gui/Haast.png"))); // NOI18N
+        jMapImage5.setIcon(new javax.swing.ImageIcon("/Users/moses/Documents/Software Engineering/KiwiIsland/Haast.png")); // NOI18N
 
-        jMapImage4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nz/ac/aut/ense701/gui/Okarito.png"))); // NOI18N
+        jMapImage4.setIcon(new javax.swing.ImageIcon("/Users/moses/Documents/Software Engineering/KiwiIsland/Okarito.png")); // NOI18N
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("Whangarei");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(jRadioWhangarei);
+        jRadioWhangarei.setText("Whangarei");
+        jRadioWhangarei.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jRadioWhangarei.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                jRadioWhangareiActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("Moehau");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(jRadioMoehau);
+        jRadioMoehau.setText("Moehau");
+        jRadioMoehau.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                jRadioMoehauActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(jRadioButton3);
-        jRadioButton3.setText("Tongariro");
+        buttonGroup1.add(jRadioTongariro);
+        jRadioTongariro.setText("Tongariro");
 
-        buttonGroup1.add(jRadioButton4);
-        jRadioButton4.setText("Okarito");
-        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(jRadioOkarito);
+        jRadioOkarito.setText("Okarito");
+        jRadioOkarito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton4ActionPerformed(evt);
+                jRadioOkaritoActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(jRadioButton5);
-        jRadioButton5.setText("Haast");
+        buttonGroup1.add(jRadioHaast);
+        jRadioHaast.setText("Haast");
 
-        buttonGroup1.add(jRadioButton6);
-        jRadioButton6.setText("Random");
+        buttonGroup1.add(jRadioRand);
+        jRadioRand.setSelected(true);
+        jRadioRand.setText("Random");
+        jRadioRand.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioRandActionPerformed(evt);
+            }
+        });
 
         jLabelSelectGameMode.setText("Select Game Mode");
 
         buttonGroup2.add(jRadioBtnRelax);
+        jRadioBtnRelax.setSelected(true);
         jRadioBtnRelax.setLabel("Relax Mode");
 
         buttonGroup2.add(jRadioBtnChallenge);
@@ -521,8 +538,14 @@ public class KiwiCountUI
         selectGameMap.setText("Select Game Map");
 
         jButtonStartGame.setText("START GAME");
+        jButtonStartGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonStartGameActionPerformed(evt);
+            }
+        });
 
         jButtonStopGame.setText("STOP GAME");
+        jButtonStopGame.setEnabled(false);
 
         javax.swing.GroupLayout pnlGameOptionsLayout = new javax.swing.GroupLayout(pnlGameOptions);
         pnlGameOptions.setLayout(pnlGameOptionsLayout);
@@ -543,9 +566,9 @@ public class KiwiCountUI
                             .addComponent(jMapImage2, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))
                         .addGap(10, 10, 10)
                         .addGroup(pnlGameOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jRadioButton2))))
+                            .addComponent(jRadioTongariro, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioWhangarei)
+                            .addComponent(jRadioMoehau))))
                 .addGap(5, 5, 5)
                 .addGroup(pnlGameOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlGameOptionsLayout.createSequentialGroup()
@@ -558,9 +581,9 @@ public class KiwiCountUI
                                     .addComponent(jMapImage4, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(pnlGameOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButton4)
-                                    .addComponent(jRadioButton5)
-                                    .addComponent(jRadioButton6)))
+                                    .addComponent(jRadioOkarito)
+                                    .addComponent(jRadioHaast)
+                                    .addComponent(jRadioRand)))
                             .addComponent(jRadioBtnChallenge))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlGameOptionsLayout.createSequentialGroup()
@@ -584,22 +607,22 @@ public class KiwiCountUI
                 .addGroup(pnlGameOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlGameOptionsLayout.createSequentialGroup()
                         .addGroup(pnlGameOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton4)
+                            .addComponent(jRadioOkarito)
                             .addComponent(jMapImage4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(pnlGameOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jMapImage5, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton2)
-                            .addComponent(jRadioButton5))
+                            .addComponent(jRadioMoehau)
+                            .addComponent(jRadioHaast))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(pnlGameOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jMapRandom, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton6)
-                            .addComponent(jRadioButton3)))
+                            .addComponent(jRadioRand)
+                            .addComponent(jRadioTongariro)))
                     .addGroup(pnlGameOptionsLayout.createSequentialGroup()
                         .addGroup(pnlGameOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jMapImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton1))
+                            .addComponent(jRadioWhangarei))
                         .addGap(18, 18, 18)
                         .addComponent(jMapImage2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -722,7 +745,7 @@ public class KiwiCountUI
                     .addGroup(pnlControlsLayout.createSequentialGroup()
                         .addComponent(pnlPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
-                        .addComponent(pnlMovement, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(pnlMovement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(pnlGameOptions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -736,10 +759,10 @@ public class KiwiCountUI
 
         pnlContent.add(pnlControls, java.awt.BorderLayout.EAST);
 
-        jButton1.setText("HELP");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonHelp.setText("HELP");
+        jButtonHelp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonHelpActionPerformed(evt);
             }
         });
 
@@ -755,7 +778,7 @@ public class KiwiCountUI
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(gameProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(532, 532, 532)
-                .addComponent(jButton1))
+                .addComponent(jButtonHelp))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -763,7 +786,7 @@ public class KiwiCountUI
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelGameTime)
-                    .addComponent(jButton1)
+                    .addComponent(jButtonHelp)
                     .addComponent(gameProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
@@ -829,21 +852,42 @@ public class KiwiCountUI
         game.countKiwi();
     }//GEN-LAST:event_btnCountActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHelpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonHelpActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void jRadioWhangareiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioWhangareiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_jRadioWhangareiActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void jRadioMoehauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioMoehauActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_jRadioMoehauActionPerformed
 
-    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+    private void jRadioOkaritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioOkaritoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton4ActionPerformed
+    }//GEN-LAST:event_jRadioOkaritoActionPerformed
+
+    private void jButtonStartGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStartGameActionPerformed
+        
+        jRadioHaast.setActionCommand("islandData.txt");
+        jRadioWhangarei.setActionCommand("islandData.txt");
+        jRadioOkarito.setActionCommand("islandData.txt");
+        jRadioTongariro.setActionCommand("islandData.txt");
+        jRadioRand.setActionCommand("islandData.txt");
+        jRadioMoehau.setActionCommand("islandData.txt");
+        
+        userMapSelection = buttonGroup1.getSelection().getActionCommand();
+        
+        startGame("islandData.txt");
+        
+        jButtonStartGame.setEnabled(false);
+        jButtonStopGame.setEnabled(true);
+    }//GEN-LAST:event_jButtonStartGameActionPerformed
+
+    private void jRadioRandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioRandActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioRandActionPerformed
     
     /**
      * Creates and initialises the island grid.
@@ -888,7 +932,7 @@ public class KiwiCountUI
     private javax.swing.ButtonGroup buttonGroup8;
     private javax.swing.ButtonGroup buttonGroup9;
     private javax.swing.JProgressBar gameProgressBar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonHelp;
     private javax.swing.JButton jButtonStartGame;
     private javax.swing.JButton jButtonStopGame;
     private javax.swing.JLabel jLabelGameTime;
@@ -902,12 +946,12 @@ public class KiwiCountUI
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioBtnChallenge;
     private javax.swing.JRadioButton jRadioBtnRelax;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
+    private javax.swing.JRadioButton jRadioHaast;
+    private javax.swing.JRadioButton jRadioMoehau;
+    private javax.swing.JRadioButton jRadioOkarito;
+    private javax.swing.JRadioButton jRadioRand;
+    private javax.swing.JRadioButton jRadioTongariro;
+    private javax.swing.JRadioButton jRadioWhangarei;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
@@ -928,4 +972,5 @@ public class KiwiCountUI
     // End of variables declaration//GEN-END:variables
 
     private Game game;
+    String userMapSelection;
 }

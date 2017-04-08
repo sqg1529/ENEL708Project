@@ -141,7 +141,7 @@
                           <Group type="102" attributes="0">
                               <Component id="pnlPlayer" min="-2" pref="179" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                              <Component id="pnlMovement" min="-2" pref="154" max="-2" attributes="0"/>
+                              <Component id="pnlMovement" max="32767" attributes="0"/>
                           </Group>
                           <Component id="pnlGameOptions" max="32767" attributes="0"/>
                       </Group>
@@ -531,9 +531,9 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jRadioButton3" min="-2" pref="101" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioTongariro" min="-2" pref="101" max="-2" attributes="0"/>
+                                      <Component id="jRadioWhangarei" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioMoehau" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -550,9 +550,9 @@
                                           </Group>
                                           <EmptySpace min="-2" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jRadioButton4" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jRadioButton5" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jRadioButton6" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jRadioOkarito" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jRadioHaast" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jRadioRand" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Component id="jRadioBtnChallenge" min="-2" max="-2" attributes="0"/>
@@ -586,26 +586,26 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jRadioButton4" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioOkarito" min="-2" max="-2" attributes="0"/>
                                       <Component id="jMapImage4" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jMapImage5" alignment="0" min="-2" pref="58" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioMoehau" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioHaast" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jMapRandom" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioRand" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioTongariro" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jMapImage1" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioWhangarei" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jMapImage2" min="-2" pref="58" max="-2" attributes="0"/>
@@ -636,14 +636,14 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/nz/ac/aut/ense701/gui/Whangarei.png"/>
+                      <Image iconType="2" name="/Users/moses/Documents/Software Engineering/KiwiIsland/Whangarei.png"/>
                     </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jMapImage2">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/nz/ac/aut/ense701/gui/Moehau.png"/>
+                      <Image iconType="2" name="/Users/moses/Documents/Software Engineering/KiwiIsland/Moehau.png"/>
                     </Property>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[716, 333]"/>
@@ -653,7 +653,7 @@
                 <Component class="javax.swing.JLabel" name="jMapImage3">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/nz/ac/aut/ense701/gui/Tongariro.png"/>
+                      <Image iconType="2" name="/Users/moses/Documents/Software Engineering/KiwiIsland/Tongariro.png"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -665,29 +665,32 @@
                 <Component class="javax.swing.JLabel" name="jMapImage5">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/nz/ac/aut/ense701/gui/Haast.png"/>
+                      <Image iconType="2" name="/Users/moses/Documents/Software Engineering/KiwiIsland/Haast.png"/>
                     </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jMapImage4">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/nz/ac/aut/ense701/gui/Okarito.png"/>
+                      <Image iconType="2" name="/Users/moses/Documents/Software Engineering/KiwiIsland/Okarito.png"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+                <Component class="javax.swing.JRadioButton" name="jRadioWhangarei">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="buttonGroup1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Whangarei"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Default Cursor"/>
+                    </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioWhangareiActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+                <Component class="javax.swing.JRadioButton" name="jRadioMoehau">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="buttonGroup1"/>
@@ -695,10 +698,10 @@
                     <Property name="text" type="java.lang.String" value="Moehau"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioMoehauActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton3">
+                <Component class="javax.swing.JRadioButton" name="jRadioTongariro">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="buttonGroup1"/>
@@ -706,7 +709,7 @@
                     <Property name="text" type="java.lang.String" value="Tongariro"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton4">
+                <Component class="javax.swing.JRadioButton" name="jRadioOkarito">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="buttonGroup1"/>
@@ -714,10 +717,10 @@
                     <Property name="text" type="java.lang.String" value="Okarito"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton4ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioOkaritoActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton5">
+                <Component class="javax.swing.JRadioButton" name="jRadioHaast">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="buttonGroup1"/>
@@ -725,13 +728,17 @@
                     <Property name="text" type="java.lang.String" value="Haast"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton6">
+                <Component class="javax.swing.JRadioButton" name="jRadioRand">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="buttonGroup1"/>
                     </Property>
+                    <Property name="selected" type="boolean" value="true"/>
                     <Property name="text" type="java.lang.String" value="Random"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioRandActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabelSelectGameMode">
                   <Properties>
@@ -746,6 +753,7 @@
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="buttonGroup2"/>
                     </Property>
+                    <Property name="selected" type="boolean" value="true"/>
                     <Property name="label" type="java.lang.String" value="Relax Mode"/>
                   </Properties>
                 </Component>
@@ -769,10 +777,14 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="START GAME"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonStartGameActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="jButtonStopGame">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="STOP GAME"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -1354,7 +1366,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="gameProgressBar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="532" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonHelp" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1364,7 +1376,7 @@
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabelGameTime" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonHelp" min="-2" max="-2" attributes="0"/>
                           <Component id="gameProgressBar" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1372,12 +1384,12 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="jButtonHelp">
               <Properties>
                 <Property name="text" type="java.lang.String" value="HELP"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonHelpActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JProgressBar" name="gameProgressBar">
