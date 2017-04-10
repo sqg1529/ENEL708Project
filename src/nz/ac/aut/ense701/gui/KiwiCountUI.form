@@ -1361,7 +1361,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="1081" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="1068" max="32767" attributes="0"/>
                       <Component id="jLabelGameTime" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="gameProgressBar" min="-2" max="-2" attributes="0"/>
@@ -1393,10 +1393,15 @@
               </Events>
             </Component>
             <Component class="javax.swing.JProgressBar" name="gameProgressBar">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="stringPainted" type="boolean" value="true"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelGameTime">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Game Time"/>
+                <Property name="text" type="java.lang.String" value="Time Elapsed"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <AccessibilityProperties>
                 <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="jLabelGameTime"/>

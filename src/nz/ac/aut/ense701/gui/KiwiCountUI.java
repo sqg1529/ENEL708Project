@@ -2,8 +2,10 @@ package nz.ac.aut.ense701.gui;
 
 import java.awt.Component;
 import java.awt.GridLayout;
-import javax.swing.ButtonModel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 import nz.ac.aut.ense701.gameModel.Game;
 import nz.ac.aut.ense701.gameModel.GameEventListener;
 import nz.ac.aut.ense701.gameModel.GameState;
@@ -12,32 +14,27 @@ import nz.ac.aut.ense701.gameModel.MoveDirection;
 /*
  * User interface form for Kiwi Island.
  * 
- * @author AS
- * @version July 2011
+ * @author Moses
+ * @version March 2017
  */
 
 public class KiwiCountUI 
     extends javax.swing.JFrame 
-    implements GameEventListener
+    implements GameEventListener, ActionListener
 {
 
     /**
      * Creates a GUI for the KiwiIsland game.
-     * @param game the game object to represent with this GUI.
      */
     public KiwiCountUI() 
     {
-        
-        
         initComponents();
     }
     
     
-    public void startGame(String mapFileLocation){
-        assert game != null : "Make sure game object is created before UI";
+    public void startGame(String mapFileLocation, Boolean gameChallenge){
         
-        
-        this.game = new Game(mapFileLocation,true);
+        this.game = new Game(mapFileLocation,gameChallenge);
         setAsGameListener();
         initIslandGrid();
         update();
@@ -50,11 +47,14 @@ public class KiwiCountUI
     @Override
     public void gameStateChanged()
     {
+        
+        
         update();
         
         // check for "game over" or "game won"
-        if ( game.getState() == GameState.LOST )
+        if ( game.getState() == GameState.LOST || game.getState() == GameState.TIME_OVER)
         {
+            
             JOptionPane.showMessageDialog(
                     this, 
                     game.getLoseMessage(), "Game over!",
@@ -766,14 +766,18 @@ public class KiwiCountUI
             }
         });
 
-        jLabelGameTime.setText("Game Time");
+        gameProgressBar.setEnabled(false);
+        gameProgressBar.setStringPainted(true);
+
+        jLabelGameTime.setText("Time Elapsed");
+        jLabelGameTime.setEnabled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 1081, Short.MAX_VALUE)
+                .addGap(0, 1068, Short.MAX_VALUE)
                 .addComponent(jLabelGameTime)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(gameProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -870,6 +874,7 @@ public class KiwiCountUI
 
     private void jButtonStartGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStartGameActionPerformed
         
+        //Check Map Selection
         jRadioHaast.setActionCommand("islandData.txt");
         jRadioWhangarei.setActionCommand("islandData.txt");
         jRadioOkarito.setActionCommand("islandData.txt");
@@ -879,7 +884,27 @@ public class KiwiCountUI
         
         userMapSelection = buttonGroup1.getSelection().getActionCommand();
         
-        startGame("islandData.txt");
+        //CCheck Game mode selection
+        jRadioBtnChallenge.setActionCommand("challenge");
+        jRadioBtnRelax.setActionCommand("relax");
+        String mode = buttonGroup2.getSelection().getActionCommand();
+        
+        gameChallengeMode = mode.contentEquals("challenge");
+        
+        //If Challenge mode is selected, Start timer until 5 minutes 
+        if(gameChallengeMode){
+            
+            jLabelGameTime.setEnabled(true);
+            gameProgressBar.setEnabled(true);
+            
+             timer = new Timer(3000, this); //
+             timeElapsed = 0;
+             timer.start();
+             
+        }
+        
+        //Start the game grid based on the user selection of location and game mode
+        startGame("islandData.txt", gameChallengeMode);
         
         jButtonStartGame.setEnabled(false);
         jButtonStopGame.setEnabled(true);
@@ -972,5 +997,29 @@ public class KiwiCountUI
     // End of variables declaration//GEN-END:variables
 
     private Game game;
-    String userMapSelection;
+    private Boolean gameChallengeMode;
+    private String userMapSelection;
+    //Variable used to recorde the game time
+    private Integer timeElapsed;
+    private Timer timer;
+
+    
+    /**
+     * This listener is used to track the game time and update the game time left as a progress bar in the GUI 
+     * @param e 
+     */
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(gameChallengeMode){
+            
+            if(timeElapsed<100){
+                timeElapsed++;
+                gameProgressBar.setValue(timeElapsed);
+            }
+            else{
+                game.setGameTimeUp(true);
+                System.err.println("Game Time UP!!!");
+            }
+        }     
+    }
 }

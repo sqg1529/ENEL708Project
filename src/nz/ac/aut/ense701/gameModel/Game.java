@@ -11,11 +11,8 @@ import java.util.Set;
 /**
  * This is the class that knows the Kiwi Island game rules and state
  * and enforces those rules.
- *
- * @author AS
- * @version 1.0 - created
- * Maintenance History
- * August 2011 Extended for stage 2. AS
+ * @author Moses
+ * @version March 2017
  */
 
 public class Game
@@ -29,27 +26,30 @@ public class Game
     public static final int SIZE_INDEX = 5;
     
     /**
-     * A new instance of Kiwi island that reads data from "IslandData.txt".
+     * A new instance of Kiwi island that reads data from a txt file selected by the user.
+     * @param userMapSelection
+     * @param gameChallengeMode
      */
-    public Game() 
+    public Game(String userMapSelection, Boolean gameChallengeMode) 
     {   
+        this.gameTimeUp = false;
         eventListeners = new HashSet<GameEventListener>();
-
-        createNewGame();
+        createNewGame(userMapSelection);
     }
     
     
     /**
      * Starts a new game.
      * At this stage data is being read from a text file
+     * @param userMapSelection : Name of the text file which has the Game Data used to initialize the Game grid
      */
-    public void createNewGame()
+    public void createNewGame(String userMapSelection)
     {
         totalPredators = 0;
         totalKiwis = 0;
         predatorsTrapped = 0;
         kiwiCount = 0;
-        initialiseIslandFromFile("IslandData.txt");
+        initialiseIslandFromFile(userMapSelection);
         drawIsland();
         state = GameState.PLAYING;
         winMessage = "";
@@ -88,7 +88,14 @@ public class Game
     public GameState getState()
     {
         return state;
-    }    
+    }
+
+    //SetTimeUp if the allocated time for a game is over
+    public void setGameTimeUp(Boolean gameTimeUp) {
+        this.gameTimeUp = gameTimeUp;
+    }
+
+    
  
     /**
      * Provide a description of occupant
@@ -518,6 +525,9 @@ public class Game
     }
     
     
+   
+    
+    
     
     /**
      * Adds a game event listener.
@@ -550,6 +560,7 @@ public class Game
     private void updateGameState()
     {
          String message = "";
+         
         if ( !player.isAlive() )
         {
             state = GameState.LOST;
@@ -576,6 +587,13 @@ public class Game
                 message = "You win! You have counted all the kiwi and trapped at least 80% of the predators.";
                 this.setWinMessage(message);
             }
+        }
+        else if(gameTimeUp)
+        {
+                state = GameState.TIME_OVER;
+                message = "Sorry, you have lost the game. The time is over";
+                this.setLoseMessage(message);
+            
         }
         // notify listeners about changes
             notifyGameEventListeners();
@@ -713,6 +731,7 @@ public class Game
      */
     private void initialiseIslandFromFile(String fileName) 
     {
+           
         try
         {
             Scanner input = new Scanner(new File(fileName));
@@ -847,13 +866,16 @@ public class Game
     private int totalPredators;
     private int totalKiwis;
     private int predatorsTrapped;
-    private Set<GameEventListener> eventListeners;
+    private Boolean gameTimeUp;
+    private final Set<GameEventListener> eventListeners;
     
     private final double MIN_REQUIRED_CATCH = 0.8;
         
     private String winMessage = "";
     private String loseMessage  = "";
     private String playerMessage  = "";   
+
+    
 
     
 
