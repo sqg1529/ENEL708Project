@@ -22,6 +22,7 @@ public class Main
         // create the GUI for the game
         final KiwiCountUI  gui  = new KiwiCountUI();
         // make the GUI visible
+        
         java.awt.EventQueue.invokeLater(new Runnable() 
         {
             @Override
