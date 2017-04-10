@@ -31,10 +31,10 @@ public class Game
      * @param gameChallengeMode
      */
     public Game(String userMapSelection, Boolean gameChallengeMode) 
-    {   
-        this.gameTimeUp = false;
+    {           
         eventListeners = new HashSet<GameEventListener>();
         createNewGame(userMapSelection);
+        gameModeChallenge = gameChallengeMode;
     }
     
     
@@ -94,9 +94,8 @@ public class Game
     public void setGameTimeUp(Boolean gameTimeUp) {
         this.gameTimeUp = gameTimeUp;
     }
-
     
- 
+
     /**
      * Provide a description of occupant
      * @param whichOccupant
@@ -858,6 +857,8 @@ public class Game
         }
     }    
 
+    
+
 
     private Island island;
     private Player player;
@@ -866,7 +867,7 @@ public class Game
     private int totalPredators;
     private int totalKiwis;
     private int predatorsTrapped;
-    private Boolean gameTimeUp;
+    private Boolean gameTimeUp, gameModeChallenge;
     private final Set<GameEventListener> eventListeners;
     
     private final double MIN_REQUIRED_CATCH = 0.8;

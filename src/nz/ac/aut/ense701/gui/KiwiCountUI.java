@@ -4,6 +4,11 @@ import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import nz.ac.aut.ense701.gameModel.Game;
@@ -54,7 +59,7 @@ public class KiwiCountUI
         // check for "game over" or "game won"
         if ( game.getState() == GameState.LOST || game.getState() == GameState.TIME_OVER)
         {
-            
+                
             JOptionPane.showMessageDialog(
                     this, 
                     game.getLoseMessage(), "Game over!",
@@ -544,8 +549,13 @@ public class KiwiCountUI
             }
         });
 
-        jButtonStopGame.setText("STOP GAME");
+        jButtonStopGame.setText("QUIT GAME");
         jButtonStopGame.setEnabled(false);
+        jButtonStopGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonStopGameActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlGameOptionsLayout = new javax.swing.GroupLayout(pnlGameOptions);
         pnlGameOptions.setLayout(pnlGameOptionsLayout);
@@ -768,7 +778,7 @@ public class KiwiCountUI
         gameProgressBar.setEnabled(false);
         gameProgressBar.setStringPainted(true);
 
-        jLabelGameTime.setText("Time Elapsed");
+        jLabelGameTime.setText("Game Time");
         jLabelGameTime.setEnabled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -776,7 +786,7 @@ public class KiwiCountUI
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 1068, Short.MAX_VALUE)
+                .addGap(0, 1081, Short.MAX_VALUE)
                 .addComponent(jLabelGameTime)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(gameProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -856,7 +866,21 @@ public class KiwiCountUI
     }//GEN-LAST:event_btnCountActionPerformed
 
     private void jButtonHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHelpActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handlingpublic static void listDictionary()throws IOException
+        //This button will open up the "help.txt" file from the project folder and display the game rules as
+        // a Message Dialog
+        
+        File file = new File("help.txt");
+        String contents = null;
+        try {
+             contents = new Scanner(file).useDelimiter("\\Z").next();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(KiwiCountUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        JOptionPane.showMessageDialog(this, 
+                    contents, "Game Information",
+                    JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonHelpActionPerformed
 
     private void jRadioWhangareiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioWhangareiActionPerformed
@@ -912,6 +936,16 @@ public class KiwiCountUI
     private void jRadioRandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioRandActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioRandActionPerformed
+
+    private void jButtonStopGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStopGameActionPerformed
+        // TODO add your handling code here:
+        int result = JOptionPane.showConfirmDialog(this, "Are you sure you want to quit the Game?", "Quit Game",
+                                JOptionPane.OK_CANCEL_OPTION);
+                        if (result == JOptionPane.OK_OPTION)
+                        {
+                            System.exit(0);
+                        } 
+    }//GEN-LAST:event_jButtonStopGameActionPerformed
     
     /**
      * Creates and initialises the island grid.
@@ -997,7 +1031,7 @@ public class KiwiCountUI
 
     private Game game;
     private Boolean gameChallengeMode;
-    private String userMapSelection;
+    private String userMapSelection;    
     //Variable used to recorde the game time
     private Integer timeElapsed;
     private Timer timer;
@@ -1017,7 +1051,6 @@ public class KiwiCountUI
             }
             else{
                 game.setGameTimeUp(true);
-                System.err.println("Game Time UP!!!");
             }
         }     
     }

@@ -783,9 +783,12 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="jButtonStopGame">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="STOP GAME"/>
+                    <Property name="text" type="java.lang.String" value="QUIT GAME"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonStopGameActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -1361,7 +1364,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="1068" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="1081" max="32767" attributes="0"/>
                       <Component id="jLabelGameTime" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="gameProgressBar" min="-2" max="-2" attributes="0"/>
@@ -1400,7 +1403,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelGameTime">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Time Elapsed"/>
+                <Property name="text" type="java.lang.String" value="Game Time"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <AccessibilityProperties>

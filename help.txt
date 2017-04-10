@@ -1,0 +1,34 @@
+How to play the game
+Use Movement buttons to move around the map to discover what's hidden in the environment.
+You can collect discovered items and use them to interact with living species around the area.
+Count all Kiwi birds and make the environment safe by trapping 80% of predators to WIN the game.
+
+Stamina: You need your stamina to stay alive and move around.
+	Hazards and different types of environment can get you hurt and lower your stamina.
+Backpack: Collected items will add weight and take spaces in your backpack.
+	Use your items or drop them to reduce the weight and make more spaces for other items.
+
+
+:+:+:+:+: KIWI SANCTUARY :+:+:+:+:
+In the new version of Kiwi Island, five different game maps have been added which all represent Department of Conservation
+ managed Kiwi Sanctuaries on mainland New Zealand. Unmanaged populations of kiwi on New Zealand's mainland are getting
+ smaller but the DOC-managed sanctuaries provide a safe haven for more young Kiwi birds to survive each year,
+ allowing the populations to increase.
+
+
+- WHANGAREI KIWI SANCTUARY: 50% - 60% of young kiwis survive their first 6 months, compared to just 11% at unmanaged
+  sites outside the Sanctuary. Northland Brown Kiwis are protected from predators such as stoats.
+- MOEHAU KIWI SANCTUARY: The average percentage of chicks surviving to adulthood is 67%, compared to just 5% in
+  unmanaged sites outside the Sanctuary. Coromandel Brown Kiwis are protected.
+- TONGARIRO KIWI SANCTUARY: DOC is aiming to have a representative sample of more than 200 breeding pairs of
+  western brown kiwi inside Tongariro Forest Kiwi Sanctuary by 2017. Western Brown Kiwis are being protected from stoats, 
+  ferrets and dogs.
+- OKARITO KIWI SANCTUARY: Protects Rowi, which were identified as a separate species from Brown Kiwi in 2003 
+  with a population of only about 375 mature birds and have been ranked as 'threatened: nationally critical'. 
+  Young Rowis are being released after each breeding season and DOC is targeting to have 600 Rowis in this sanctuary by 2018.
+- HAAST KIWI SANCTUARY: protects Haast Tokoeka and covers at least 85% of the area where they are known to live. 
+  Haast Tokoeka are also ranked as 'threatened: nationally critical' caused by predation by stoats and their low breeding
+  rate - a pair lay one or fewer eggs each year. DOC is carrying out intensive stoat control inside the sanctuary and
+  continuous researches to boost Haast Tokoeka population are being done.
+
+For more information on Kiwi Sanctuaries, visit https://www.kiwisforkiwi.org/what-we-do/who-are-kiwis-for-kiwi/kiwi-sanctuaries/
