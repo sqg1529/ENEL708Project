@@ -37,9 +37,9 @@ public class KiwiCountUI
     }
     
     
-    public void startGame(String mapFileLocation, Boolean gameChallenge){
+    public void startGame(String mapFileLocation){
         
-        this.game = new Game(mapFileLocation,gameChallenge);
+        this.game = new Game(mapFileLocation);
         setAsGameListener();
         initIslandGrid();
         update();
@@ -64,15 +64,20 @@ public class KiwiCountUI
                     this, 
                     game.getLoseMessage(), "Game over!",
                     JOptionPane.INFORMATION_MESSAGE);
-            game.createNewGame(userMapSelection);
+            
+            //Remove all componets from the game panel and allow user to start new game the game
+            pnlIsland.removeAll();
+            jButtonStartGame.setEnabled(true);
         }
         else if ( game.getState() == GameState.WON )
         {
             JOptionPane.showMessageDialog(
                     this, 
-                    game.getWinMessage(), "Well Done!",
+                    game.getWinMessage(), "Game Won!",
                     JOptionPane.INFORMATION_MESSAGE);
-            game.createNewGame(userMapSelection);
+            //Remove all componets from the game panel and restart the game
+            pnlIsland.removeAll();
+            jButtonStartGame.setEnabled(true);
         }
         else if (game.messageForPlayer())
         {
@@ -549,7 +554,7 @@ public class KiwiCountUI
             }
         });
 
-        jButtonStopGame.setText("QUIT GAME");
+        jButtonStopGame.setText("END GAME");
         jButtonStopGame.setEnabled(false);
         jButtonStopGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -775,11 +780,9 @@ public class KiwiCountUI
             }
         });
 
-        gameProgressBar.setEnabled(false);
         gameProgressBar.setStringPainted(true);
 
         jLabelGameTime.setText("Game Time");
-        jLabelGameTime.setEnabled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -917,17 +920,21 @@ public class KiwiCountUI
         //If Challenge mode is selected, Start timer until 5 minutes 
         if(gameChallengeMode){
             
-            jLabelGameTime.setEnabled(true);
-            gameProgressBar.setEnabled(true);
+            jLabelGameTime.setVisible(true);
+            gameProgressBar.setVisible(true);
             
              timer = new Timer(3000, this); //
              timeElapsed = 0;
              timer.start();
              
         }
+        else{
+                jLabelGameTime.setVisible(false);
+                gameProgressBar.setVisible(false);
+            }
         
         //Start the game grid based on the user selection of location and game mode
-        startGame("islandData.txt", gameChallengeMode);
+        startGame("islandData.txt");
         
         jButtonStartGame.setEnabled(false);
         jButtonStopGame.setEnabled(true);
@@ -939,11 +946,13 @@ public class KiwiCountUI
 
     private void jButtonStopGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStopGameActionPerformed
         // TODO add your handling code here:
-        int result = JOptionPane.showConfirmDialog(this, "Are you sure you want to quit the Game?", "Quit Game",
+        int result = JOptionPane.showConfirmDialog(this, "Are you sure you want to end the Game?", "End Game",
                                 JOptionPane.OK_CANCEL_OPTION);
                         if (result == JOptionPane.OK_OPTION)
                         {
-                            System.exit(0);
+                            pnlIsland.removeAll();
+                            jButtonStartGame.setEnabled(true);
+                            jButtonStopGame.setEnabled(false);
                         } 
     }//GEN-LAST:event_jButtonStopGameActionPerformed
     

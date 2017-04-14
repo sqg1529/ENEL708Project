@@ -30,11 +30,12 @@ public class Game
      * @param userMapSelection
      * @param gameChallengeMode
      */
-    public Game(String userMapSelection, Boolean gameChallengeMode) 
+    public Game(String userMapSelection) 
     {           
         eventListeners = new HashSet<GameEventListener>();
         createNewGame(userMapSelection);
-        gameModeChallenge = gameChallengeMode;
+        gameTimeUp = false;
+        
     }
     
     
@@ -558,12 +559,12 @@ public class Game
      */
     private void updateGameState()
     {
-         String message = "";
-         
+        
+        String message = "";
         if ( !player.isAlive() )
         {
             state = GameState.LOST;
-            message = "Sorry, you have lost the game. " + this.getLoseMessage();
+            message = "Sorry, you have lost the game!! Give it another go!" + this.getLoseMessage();
             this.setLoseMessage(message);
         }
         else if (!playerCanMove() )
@@ -578,6 +579,13 @@ public class Game
             message = "You win! You have done an excellent job and trapped all the predators.";
             this.setWinMessage(message);
         }
+        else if(gameTimeUp)
+        {
+                state = GameState.TIME_OVER;
+                message = "Sorry, your time is up!! Give it another ";
+                this.setLoseMessage(message);
+            
+        }
         else if(kiwiCount == totalKiwis)
         {
             if(predatorsTrapped >= totalPredators * MIN_REQUIRED_CATCH)
@@ -586,13 +594,6 @@ public class Game
                 message = "You win! You have counted all the kiwi and trapped at least 80% of the predators.";
                 this.setWinMessage(message);
             }
-        }
-        else if(gameTimeUp)
-        {
-                state = GameState.TIME_OVER;
-                message = "Sorry, you have lost the game. The time is over";
-                this.setLoseMessage(message);
-            
         }
         // notify listeners about changes
             notifyGameEventListeners();
@@ -867,7 +868,7 @@ public class Game
     private int totalPredators;
     private int totalKiwis;
     private int predatorsTrapped;
-    private Boolean gameTimeUp, gameModeChallenge;
+    private Boolean gameTimeUp;
     private final Set<GameEventListener> eventListeners;
     
     private final double MIN_REQUIRED_CATCH = 0.8;

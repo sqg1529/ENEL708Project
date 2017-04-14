@@ -783,7 +783,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="jButtonStopGame">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="QUIT GAME"/>
+                    <Property name="text" type="java.lang.String" value="END GAME"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
@@ -1397,14 +1397,12 @@
             </Component>
             <Component class="javax.swing.JProgressBar" name="gameProgressBar">
               <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="stringPainted" type="boolean" value="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelGameTime">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Game Time"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <AccessibilityProperties>
                 <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="jLabelGameTime"/>
