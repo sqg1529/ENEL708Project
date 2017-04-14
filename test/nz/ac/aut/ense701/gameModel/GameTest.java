@@ -113,6 +113,11 @@ public class GameTest extends junit.framework.TestCase
     }
     
     @Test
+    public void testGetGameTimeUpStatus(){
+        assertTrue("Check Game time up status when a new game starts", game.getGameTimeUp().equals(false) );
+    }
+    
+    @Test
     public void testGetPlayerValues(){
         int[] values = game.getPlayerValues();
         assertEquals("Check Max backpack size.", values[Game.MAXSIZE_INDEX], 5);    
@@ -414,6 +419,16 @@ public class GameTest extends junit.framework.TestCase
         assertFalse("Player should not have required stamina", game.playerMove(MoveDirection.WEST));
         //Game not over as there other moves player has enough stamina for
         assertTrue("Game should not be over", game.getState()== GameState.PLAYING);
+    }
+    
+    
+    @Test
+    public void testPlayerMoveNoTimeLeft(){
+        // Set the gameTimeup = true;
+        game.setGameTimeUp(true);
+        game.checkGameTimeOver();
+        //Game should be over as the game time is up
+        assertTrue("Game should be over", game.getState()== GameState.TIME_OVER);
     }
     
     @Test

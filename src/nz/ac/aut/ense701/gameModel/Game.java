@@ -96,6 +96,11 @@ public class Game
         this.gameTimeUp = gameTimeUp;
     }
     
+    //Get TimeUp Boolean
+    public Boolean getGameTimeUp() {
+        return this.gameTimeUp;
+    }
+    
 
     /**
      * Provide a description of occupant
@@ -525,9 +530,6 @@ public class Game
     }
     
     
-   
-    
-    
     
     /**
      * Adds a game event listener.
@@ -582,7 +584,7 @@ public class Game
         else if(gameTimeUp)
         {
                 state = GameState.TIME_OVER;
-                message = "Sorry, your time is up!! Give it another ";
+                message = "Sorry, your time is up!! Give it another go!";
                 this.setLoseMessage(message);
             
         }
@@ -670,6 +672,18 @@ public class Game
             {
                handleHazard((Hazard)occupant) ;
             }
+        }
+    }
+    
+    /**
+     * Checks if the time limit for the game has been reached in the challenge mode.
+     * The game ends once the set time has been reached
+     */
+    public void checkGameTimeOver()
+    {
+        //check if the gameTimeUp is true
+        if(gameTimeUp){
+            updateGameState();
         }
     }
     

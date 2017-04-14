@@ -68,6 +68,9 @@ public class KiwiCountUI
             //Remove all componets from the game panel and allow user to start new game the game
             pnlIsland.removeAll();
             jButtonStartGame.setEnabled(true);
+            jButtonStopGame.setEnabled(false);
+            
+            stopTimer = true; //Stop the timer
         }
         else if ( game.getState() == GameState.WON )
         {
@@ -78,6 +81,9 @@ public class KiwiCountUI
             //Remove all componets from the game panel and restart the game
             pnlIsland.removeAll();
             jButtonStartGame.setEnabled(true);
+            jButtonStopGame.setEnabled(false);
+            stopTimer = true; //Stop the timer
+            
         }
         else if (game.messageForPlayer())
         {
@@ -485,16 +491,16 @@ public class KiwiCountUI
         jMapImage1.setBackground(new java.awt.Color(255, 255, 255));
         jMapImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nz/ac/aut/ense701/gui/Whangarei.png"))); // NOI18N
 
-        jMapImage2.setIcon(new javax.swing.ImageIcon("/Users/moses/Documents/Software Engineering/KiwiIsland/Moehau.png")); // NOI18N
+        jMapImage2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nz/ac/aut/ense701/gui/Moehau.png"))); // NOI18N
         jMapImage2.setMaximumSize(new java.awt.Dimension(716, 333));
 
-        jMapImage3.setIcon(new javax.swing.ImageIcon("/Users/moses/Documents/Software Engineering/KiwiIsland/Tongariro.png")); // NOI18N
+        jMapImage3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nz/ac/aut/ense701/gui/Tongariro.png"))); // NOI18N
 
         jMapRandom.setText("    Random Map");
 
-        jMapImage5.setIcon(new javax.swing.ImageIcon("/Users/moses/Documents/Software Engineering/KiwiIsland/Haast.png")); // NOI18N
+        jMapImage5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nz/ac/aut/ense701/gui/Haast.png"))); // NOI18N
 
-        jMapImage4.setIcon(new javax.swing.ImageIcon("/Users/moses/Documents/Software Engineering/KiwiIsland/Okarito.png")); // NOI18N
+        jMapImage4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nz/ac/aut/ense701/gui/Okarito.png"))); // NOI18N
 
         buttonGroup1.add(jRadioWhangarei);
         jRadioWhangarei.setText("Whangarei");
@@ -901,12 +907,12 @@ public class KiwiCountUI
     private void jButtonStartGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStartGameActionPerformed
         
         //Check Map Selection
-        jRadioHaast.setActionCommand("islandData.txt");
-        jRadioWhangarei.setActionCommand("islandData.txt");
-        jRadioOkarito.setActionCommand("islandData.txt");
-        jRadioTongariro.setActionCommand("islandData.txt");
-        jRadioRand.setActionCommand("islandData.txt");
-        jRadioMoehau.setActionCommand("islandData.txt");
+        jRadioHaast.setActionCommand("Whangarei.txt");
+        jRadioWhangarei.setActionCommand("Whangarei.txt");
+        jRadioOkarito.setActionCommand("Whangarei.txt");
+        jRadioTongariro.setActionCommand("Whangarei.txt");
+        jRadioRand.setActionCommand("Whangarei.txt");
+        jRadioMoehau.setActionCommand("Moehau.txt");
         
         userMapSelection = buttonGroup1.getSelection().getActionCommand();
         
@@ -923,9 +929,11 @@ public class KiwiCountUI
             jLabelGameTime.setVisible(true);
             gameProgressBar.setVisible(true);
             
-             timer = new Timer(3000, this); //
+             
              timeElapsed = 0;
+             timer = new Timer(3000, this);
              timer.start();
+             stopTimer = false; //set Boolean to stop timer to false until
              
         }
         else{
@@ -934,7 +942,7 @@ public class KiwiCountUI
             }
         
         //Start the game grid based on the user selection of location and game mode
-        startGame("islandData.txt");
+        startGame(userMapSelection);
         
         jButtonStartGame.setEnabled(false);
         jButtonStopGame.setEnabled(true);
@@ -951,8 +959,18 @@ public class KiwiCountUI
                         if (result == JOptionPane.OK_OPTION)
                         {
                             pnlIsland.removeAll();
-                            jButtonStartGame.setEnabled(true);
-                            jButtonStopGame.setEnabled(false);
+                            jButtonStartGame.setEnabled(true); //Enable the Start Game Button
+                            jButtonStopGame.setEnabled(false); //Disable the Stop Game Button
+                            
+                            //Hide the time Display
+                            jLabelGameTime.setVisible(false); 
+                            gameProgressBar.setVisible(false);
+                            
+                            if(gameChallengeMode){
+                                timer.stop();
+                                gameProgressBar.setValue(0);
+                                timeElapsed = 0; //reset the time elapsed
+                            }
                         } 
     }//GEN-LAST:event_jButtonStopGameActionPerformed
     
@@ -1039,7 +1057,7 @@ public class KiwiCountUI
     // End of variables declaration//GEN-END:variables
 
     private Game game;
-    private Boolean gameChallengeMode;
+    private Boolean gameChallengeMode, stopTimer;
     private String userMapSelection;    
     //Variable used to recorde the game time
     private Integer timeElapsed;
@@ -1055,11 +1073,16 @@ public class KiwiCountUI
         if(gameChallengeMode){
             
             if(timeElapsed<100){
-                timeElapsed++;
-                gameProgressBar.setValue(timeElapsed);
+                if(!stopTimer){
+                    timeElapsed++;
+                    gameProgressBar.setValue(timeElapsed);
+                }
             }
             else{
-                game.setGameTimeUp(true);
+                game.setGameTimeUp(true); //Inform the Game class to chage GameState to "TIME_UP" by setting this property to "true"
+                timer.stop(); //Stop the time
+                //update game state
+                game.checkGameTimeOver();
             }
         }     
     }

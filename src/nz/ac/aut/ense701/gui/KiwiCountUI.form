@@ -643,7 +643,7 @@
                 <Component class="javax.swing.JLabel" name="jMapImage2">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="/Users/moses/Documents/Software Engineering/KiwiIsland/Moehau.png"/>
+                      <Image iconType="3" name="/nz/ac/aut/ense701/gui/Moehau.png"/>
                     </Property>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[716, 333]"/>
@@ -653,7 +653,7 @@
                 <Component class="javax.swing.JLabel" name="jMapImage3">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="/Users/moses/Documents/Software Engineering/KiwiIsland/Tongariro.png"/>
+                      <Image iconType="3" name="/nz/ac/aut/ense701/gui/Tongariro.png"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -665,14 +665,14 @@
                 <Component class="javax.swing.JLabel" name="jMapImage5">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="/Users/moses/Documents/Software Engineering/KiwiIsland/Haast.png"/>
+                      <Image iconType="3" name="/nz/ac/aut/ense701/gui/Haast.png"/>
                     </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jMapImage4">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="/Users/moses/Documents/Software Engineering/KiwiIsland/Okarito.png"/>
+                      <Image iconType="3" name="/nz/ac/aut/ense701/gui/Okarito.png"/>
                     </Property>
                   </Properties>
                 </Component>
