@@ -636,7 +636,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="/Users/moses/Documents/Software Engineering/KiwiIsland/Whangarei.png"/>
+                      <Image iconType="3" name="/nz/ac/aut/ense701/gui/Whangarei.png"/>
                     </Property>
                   </Properties>
                 </Component>

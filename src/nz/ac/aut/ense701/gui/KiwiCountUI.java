@@ -483,7 +483,7 @@ public class KiwiCountUI
         pnlGameOptions.setBorder(javax.swing.BorderFactory.createTitledBorder("Game Options"));
 
         jMapImage1.setBackground(new java.awt.Color(255, 255, 255));
-        jMapImage1.setIcon(new javax.swing.ImageIcon("/Users/moses/Documents/Software Engineering/KiwiIsland/Whangarei.png")); // NOI18N
+        jMapImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nz/ac/aut/ense701/gui/Whangarei.png"))); // NOI18N
 
         jMapImage2.setIcon(new javax.swing.ImageIcon("/Users/moses/Documents/Software Engineering/KiwiIsland/Moehau.png")); // NOI18N
         jMapImage2.setMaximumSize(new java.awt.Dimension(716, 333));
